@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PixelGamer - Retro Gaming Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <base href="/PersonalGamingWebsite/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Add this to your <head> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> -->
+    <!-- Include Bootstrap 5 (Optional if not already included) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* 8-Bit Font Style */
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            font-family: 'Press Start 2P', cursive;
+
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            line-height: 1.5;
+            image-rendering: pixelated;
+            cursor: url('../personal gaming web/assets/cursor/Normal Select 2.cur'), auto;
+
+        }
+
+        .selectable-text {
+            cursor: url('../personal gaming web/assets/cursor/Text select 54jh.cur'), text;
+        }
+
+        input,
+        textarea {
+            cursor: url('../personal gaming web/assets/cursor/Text select 54jh.cur'), text;
+        }
+
+        a,
+        button,
+        .link-area {
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
+        }
+
+        .resize-vertical {
+            resize: vertical;
+            cursor: url('../personal gaming web/assets/cursor/Vertical Resize.cur'), ns-resize;
+        }
+
+        a,
+        button,
+        .clickable,
+        [role="button"],
+        [onclick] {
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
+        }
+
+        a:hover {
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
+        }
+
+        a:hover,
+        button:hover,
+        .clickable:hover,
+        [role="button"]:hover,
+        [onclick]:hover {
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
+        }
+
+        *::before,
+        *::after {
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
+        }
+
+        a:disabled,
+        button:disabled,
+        .disabled-area {
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
+            /* دکمه یا لینک غیرفعال */
+        }
+
+
+        ::-moz-selection {
+            /* Code for Firefox */
+            color: #00ffff;
+            background: #ff00ff;
+        }
+
+        ::selection {
+            color: #00ffff;
+            background: #ff00ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Pixel Animation */
+        @keyframes pixelate {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Pixel Button Style */
+        .pixel-btn {
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.2s ease;
+        }
+
+        .pixel-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .pixel-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px #000;
+        }
+
+        /* Pixel Border */
+        .pixel-border {
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .pixel-border:before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px dashed #00ffff;
+            pointer-events: none;
+            animation: border-dance 4s linear infinite;
+        }
+
+        @keyframes border-dance {
+            0% {
+                border-color: #00ffff;
+            }
+
+            25% {
+                border-color: #ff00ff;
+            }
+
+            50% {
+                border-color: #ffff00;
+            }
+
+            75% {
+                border-color: #00ff00;
+            }
+
+            100% {
+                border-color: #00ffff;
+            }
+        }
+
+        /* Pixel Art Rendering */
+        .pixel-art {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 4px solid #00ffff;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #00ffff
+            }
+        }
+
+        /* 8-Bit Scrollbar */
+        .retro-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .retro-scrollbar::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        .retro-scrollbar::-webkit-scrollbar-thumb {
+            background: #00ffff;
+            border-radius: 0;
+            border: 2px solid #000;
+        }
+
+        /* Pixel Grid Background */
+        .pixel-grid {
+            background:
+                linear-gradient(to right, #222 1px, transparent 1px),
+                linear-gradient(to bottom, #222 1px, transparent 1px);
+            background-size: 16px 16px;
+            opacity: 0.2;
+        }
+
+        /* CRT Screen Effect */
+        .crt-effect:after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 4px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+
+
+        /* Pixel Progress Bar with Animated Fill */
+        .pixel-progress {
+            height: 32px;
+            background-color: #1e1e2e;
+            border: 4px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            overflow: hidden;
+            position: relative;
+            image-rendering: pixelated;
+        }
+
+        .pixel-fill {
+            height: 100%;
+            width: 0%;
+            color: #000;
+            text-align: right;
+            padding-right: 8px;
+            font-size: 10px;
+            font-weight: bold;
+            image-rendering: pixelated;
+            border-right: 2px solid #000;
+            background-size: 40px 100%;
+            background-repeat: repeat;
+            animation: stripe-move 1s linear infinite;
+        }
+
+        /* 🎨 رنگ‌ها با نوار راه‌راه */
+        .pixel-fill.purple {
+            background-image: repeating-linear-gradient(135deg,
+                    #b517ff,
+                    #b517ff 20px,
+                    #9b00cc 20px,
+                    #9b00cc 40px);
+            border-right-color: #b517ff;
+        }
+
+        .pixel-fill.yellow {
+            background-image: repeating-linear-gradient(135deg,
+                    #fcd34d,
+                    #fcd34d 20px,
+                    #d9b600 20px,
+                    #d9b600 40px);
+            border-right-color: #fcd34d;
+        }
+
+        .pixel-fill.pink {
+            background-image: repeating-linear-gradient(135deg,
+                    #ff69b4,
+                    #ff69b4 20px,
+                    #cc3385 20px,
+                    #cc3385 40px);
+            border-right-color: #ff69b4;
+        }
+
+        .pixel-fill.cyan {
+            background-image: repeating-linear-gradient(135deg,
+                    #00ffff,
+                    #00ffff 20px,
+                    #00bbbb 20px,
+                    #00bbbb 40px);
+            border-right-color: #00ffff;
+        }
+
+        /* 🔁 انیمیشن حرکت راه‌راه */
+        @keyframes stripe-move {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 40px 0;
+            }
+        }
+
+        .pixel-box {
+            box-shadow: 6px 6px 0 #000;
+            image-rendering: pixelated;
+        }
+
+        .pixel-text {
+            text-shadow: 3px 3px 0 #ff00ff;
+        }
+
+
+
+        /* ✅ انیمیشن بالا آمدن هنگام اسکرول */
+        @keyframes fadeInUpScroll {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-fade.in-view {
+            animation: fadeInUpScroll 0.8s ease-out forwards;
+        }
+    </style>
+    </link>
+</head>
+
+<body class="bg-gray-900 text-white retro-scrollbar overflow-x-hidden crt-effect">
+    <!-- Pixel Loading Screen -->
+    <div class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center transition-opacity duration-1000"
+        id="loading">
+        <div class="pixel-border mb-8 animate-pulse scroll-fade"
+            style="background-color: #1a1a2e ; padding: 0.95rem; border: 0;">
+            <h1 class="text-4xl md:text-6xl font-bold" style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                PixelGamer</h1>
+        </div>
+        <div class="w-64 h-8 bg-gray-800 rounded-none overflow-hidden border-4 border-black">
+            <div class="h-full bg-cyan-500 rounded-none transition-all duration-300" id="progress-bar"
+                style="width: 0%"></div>
+        </div>
+        <p class="mt-4 text-cyan-400">LOADING...</p>
+    </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bg-gray-900 border-b-4 border-black">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a class="text-2xl font-bold text-cyan-400 flex items-center gap-2" href="#"
+                style="text-shadow: 2px 2px 0px #ff00ff;">
+                <!-- 🔥 گیف پیکسلی کنار لوگو -->
+                <img alt="Logo" class="w-6 h-6 pixel-fire-gif"
+                    src="../personal gaming web/assets/img/pine-removebg-preview.png"
+                    style="width: 50px; height: 50px;" />
+                <span class="flex items-center">
+                    <!-- <span class="inline-block w-6 h-6 bg-purple-500 mr-2 border-2 border-black"></span> -->
+                    PixelGamer
+                </span>
+            </a>
+            <button class="md:hidden text-purple-400 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <div class="hidden md:flex space-x-4" id="menu">
+                <a class="pixel-btn px-4 py-2 bg-gray-800 hover:bg-gray-700 flex items-center space-x-2" href="#home">
+                    <img alt="Home" class="w-6 h-6" src="../personal gaming web/assets/img/output-onlinegiftools.gif" />
+                    <span>Home</span>
+                </a>
+                <!-- سایر لینک‌های منو -->
+            </div>
+        </div>
+        <div class="hidden md:hidden bg-gray-800 px-4 py-2 border-t-4 border-black" id="mobile-menu">
+            <div class="flex flex-col space-y-2">
+                <a class="pixel-btn px-4 py-2 bg-gray-700 hover:bg-gray-600 flex items-center space-x-2" href="#home">
+                    <img alt="Home" class="w-6 h-6" src="../personal gaming web/assets/img/output-onlinegiftools.gif" />
+                    <span>Home</span>
+                </a>
+                <!-- سایر لینک‌های موبایل -->
+            </div>
+        </div>
+    </nav>
+    <!-- 🎧 Background Music Audio Tag (Hidden) -->
+    <audio id="bg-music" loop="">
+        <source src="../personal gaming web/assets/audio/pixel-245147.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+    </audio>
+    <!-- 🎛️ Toggle Button -->
+    <button
+        class="fixed bottom-4 right-4 pixel-btn bg-purple-600 hover:bg-purple-500 px-4 py-2 z-50 flex items-center space-x-2 text-sm"
+        id="music-toggle">
+        <i class="fas fa-music"></i>
+        <span>Music: ON</span>
+    </button>
+    <!-- 🎛️ Toggle shooter Button -->
+    <button
+        class="fixed bottom-4 left-4 pixel-btn bg-purple-600 hover:bg-purple-500 px-4 py-2 z-50 flex items-center space-x-2 text-sm"
+        id="shooter-toggle">
+        <i class="fas fa-crosshairs"></i>
+        <span>Shooter: OFF</span>
+    </button>
+    <!-- Shooter iframe -->
+    <iframe id="shooter-frame" src="../personal gaming web/assets/shooter/gun-shooting.html"
+        style="position: fixed; bottom: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 40; display: none; pointer-events: none;">
+    </iframe>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 pb-16 px-4 bg-gray-900 relative scroll-fade"
+        id="home">
+        <div class="absolute inset-0 pixel-grid z-0"></div>
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+            <!-- Text + Buttons -->
+            <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                <!-- ✅ عنوان با گیف - ساختار جداگانه و تراز حرفه‌ای -->
+                <div
+                    class="flex flex-col md:flex-row items-center md:items-end justify-center md:justify-start gap-4 mb-4">
+                    <!-- گیف -->
+                    <img alt="Pixel Squidward" class="md:w-[100px] md:h-[100px] pixel-art"
+                        src="../personal gaming web/assets/img/Squidward dancing.gif"
+                        style="width: 9rem; height: 9rem;">
+                    <!-- عنوان -->
+                    <h1 class="text-2xl md:text-5xl font-bold leading-tight"
+                        style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                        LEVEL UP YOUR GAMING
+                    </h1>
+                    </img>
+                </div>
+                <!-- توضیح -->
+                <p class="text-sm md:text-lg mb-8 text-gray-300">
+                    WELCOME TO MY PIXEL GAMING UNIVERSE!
+                </p>
+                <!-- دکمه‌ها -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a class="pixel-btn px-4 py-2 bg-cyan-600 hover:bg-cyan-500 flex items-center" href="#stream">
+                        <i class="fas fa-gamepad mr-2"></i> WATCH STREAM
+                    </a>
+                    <a class="pixel-btn px-4 py-2 bg-gray-800 hover:bg-gray-700 flex items-center" href="#games">
+                        <i class="fas fa-dice-d6 mr-2"></i> MY TOP STREAMS
+                    </a>
+                </div>
+            </div>
+            <!-- تصویر آواتار -->
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-purple-900 pixel-border animate-pulse scroll-fade"
+                        style="background-color: #1a1a2e;">
+                        <div class="absolute -inset-4 border-4 border-transparent border-t-cyan-400 border-r-purple-400 border-b-cyan-400 border-l-purple-400 animate-spin"
+                            style="animation-duration: 6s;"></div>
+                    </div>
+                    <img alt="Avatar"
+                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-60 md:h-60 pixel-art border-4 border-black"
+                        src="https://i.imgur.com/Jvh1OQm.png" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Games Section -->
+    <section class="py-16 bg-gray-800 px-4 scroll-fade" id="games">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 flex flex-col md:flex-row items-center justify-center gap-4">
+                <!-- GIF پیکسلی آتیش بدون بک‌گراند -->
+                <img alt="Pixel Fire" class="pixel-fire-gif" src="../personal gaming web/assets/img/flames.gif"
+                    style="width:60px; height:60px;">
+                <h2 class="text-3xl md:text-5xl font-bold scroll-fade"
+                    style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                    MY TOP 3 STREAM
+                </h2>
+                </img>
+            </div>
+            <p class="max-w-2xl mx-auto text-gray-300 text-center">
+                CHECK OUT THESE PIXEL ART GAMES I'VE DEVELOPED - EACH ONE A LOVE LETTER TO RETRO GAMING!
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <!-- Game 1 -->
+                <div class="bg-gray-900 p-4 pixel-border hover:animate-pixelate transition-all duration-300 scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div class="overflow-hidden mb-4 border-4 border-black">
+                        <img alt="Cyber Pixel Adventure"
+                            class="w-full h-48 object-cover pixel-art hover:scale-105 transition-transform duration-500"
+                            src="https://i.imgur.com/r3J0NPG.png">
+                        </img>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400 scroll-fade">CYBER PIXEL ADVENTURE</h3>
+                    <p class="text-gray-300 mb-4">
+                        A NEON-DRENCHED PLATFORMER WHERE YOU HACK YOUR WAY THROUGH A CYBERPUNK
+                        CITY.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">PLATFORMER</span>
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">RETRO</span>
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">CYBERPUNK</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex gap-2 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a class="pixel-btn px-4 py-2 bg-purple-600 hover:bg-purple-500 text-sm" href="#">WATCH
+                            STREAM</a>
+                    </div>
+                </div>
+                <!-- Game 2 -->
+                <div class="bg-gray-900 p-4 pixel-border hover:animate-pixelate transition-all duration-300 scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div class="overflow-hidden mb-4 border-4 border-black">
+                        <img alt="Pixel Monsters"
+                            class="w-full h-48 object-cover pixel-art hover:scale-105 transition-transform duration-500"
+                            src="https://i.imgur.com/NyMXaSF.png" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400 scroll-fade">PIXEL MONSTERS RPG</h3>
+                    <p class="text-gray-300 mb-4">
+                        CAPTURE AND BATTLE WITH PIXEL CREATURES IN THIS TURN-BASED RPG
+                        ADVENTURE.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">RPG</span>
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">TURN-BASED</span>
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">CREATURES</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex gap-2 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <a class="pixel-btn px-4 py-2 bg-purple-600 hover:bg-purple-500 text-sm" href="#">WATCH
+                            STREAM</a>
+                    </div>
+                </div>
+                <!-- Game 3 -->
+                <div class="bg-gray-900 p-4 pixel-border hover:animate-pixelate transition-all duration-300 scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div class="overflow-hidden mb-4 border-4 border-black">
+                        <img alt="Retro Space Invaders"
+                            class="w-full h-48 object-cover pixel-art hover:scale-105 transition-transform duration-500"
+                            src="https://i.imgur.com/szUE1YD.png" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400 scroll-fade">RETRO SPACE INVADERS</h3>
+                    <p class="text-gray-300 mb-4">
+                        A MODERN TWIST ON THE CLASSIC ARCADE SHOOTER WITH POWER-UPS AND BOSS
+                        BATTLES.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">ARCADE</span>
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">SHOOTER</span>
+                        <span class="px-2 py-1 bg-purple-900 text-xs border-2 border-black">RETRO</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex gap-2 text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <a class="pixel-btn px-4 py-2 bg-purple-600 hover:bg-purple-500 text-sm" href="#">WATCH
+                            STREAM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="py-16 bg-gray-900 px-4 scroll-fade" id="about">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                <div class="p-4 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <img alt="About" class="w-full h-auto pixel-art border-4 border-black"
+                        src="https://i.imgur.com/0W3QK7f.png" />
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <!-- تیتر با گیف کنار هم -->
+                <div class="flex flex-col md:flex-row items-center gap-4 mb-6 text-center md:text-left">
+                    <img alt="Pixel cat" class="pixel-fire-gif"
+                        src="../personal gaming web/assets/img/Transparent Calico Gif.gif"
+                        style="width:60px; height:60px;">
+                    <h2 class="text-3xl md:text-5xl font-bold scroll-fade"
+                        style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                        ABOUT PIXELGAMER
+                    </h2>
+                    </img>
+                </div>
+                <p class="text-gray-300 mb-6">
+                    HI, I'M ALEX, A PASSIONATE GAME DEVELOPER...
+                </p>
+                <p class="text-gray-300 mb-8 leading-relaxed">
+                    MY MISSION IS TO RECREATE THE MAGIC OF CLASSIC GAMING WHILE PUSHING THE BOUNDARIES
+                    OF WHAT PIXEL ART CAN ACHIEVE. WHEN I'M NOT DEVELOPING GAMES, YOU CAN FIND ME
+                    STREAMING SPEEDRUNS OR REVIEWING INDIE PIXEL TITLES.
+                </p>
+                <div class="space-y-4 mb-8">
+                    <div>
+                        <h4 class="text-lg font-bold text-cyan-400 flex items-center">
+                            <i class="fas fa-gamepad mr-2"></i> GAMING SINCE
+                        </h4>
+                        <p class="text-gray-400">1992</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-purple-400 flex items-center">
+                            <i class="fas fa-laptop-code mr-2"></i> GAME DEVELOPMENT
+                        </h4>
+                        <p class="text-gray-400">5+ YEARS EXPERIENCE</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-cyan-400 flex items-center">
+                            <i class="fas fa-palette mr-2"></i> FAVORITE GAME
+                        </h4>
+                        <p class="text-gray-400">CHRONO TRIGGER</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 📄 Resume Section -->
+    <section class="py-16 bg-gray-800 px-4 scroll-fade" id="resume">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 flex flex-col md:flex-row items-center justify-center gap-4">
+                <img alt="Notebook Pixel" class="pixel-art"
+                    src="../personal gaming web/assets/img/S P E L L B O O K.gif" style="width:60px; height:60px;" />
+                <h2 class="text-3xl md:text-5xl font-bold pixel-text scroll-fade" style="color: #00ffff;">MY RESUME</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skills Card -->
+                <div class="bg-gray-900 p-6 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <h3 class="text-xl text-cyan-400 font-bold mb-4 scroll-fade">🛠️ SKILLS</h3>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <li>Pixel Art Animation</li>
+                        <li>HTML / Tailwind CSS</li>
+                        <li>JavaScript / Phaser.js</li>
+                        <li>Game Design &amp; Mechanics</li>
+                    </ul>
+                </div>
+                <!-- Education Card -->
+                <div class="bg-gray-900 p-6 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <h3 class="text-xl text-cyan-400 font-bold mb-4 scroll-fade">🎓 EDUCATION</h3>
+                    <p class="text-gray-300 mb-2">
+                        <span class="font-semibold text-yellow-400">B.S. in Game Development</span><br />
+                        Pixel Academy, 2022
+                    </p>
+                    <p class="text-gray-300">
+                        <span class="font-semibold text-yellow-400">Certificate in Pixel Design</span><br />
+                        Retro Art School, 2020
+                    </p>
+                </div>
+                <!-- Experience Card -->
+                <div class="bg-gray-900 p-6 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <h3 class="text-xl text-cyan-400 font-bold mb-4 scroll-fade">💼 EXPERIENCE</h3>
+                    <p class="text-gray-300 mb-2">
+                        <span class="font-semibold text-yellow-400">Indie Game Dev</span><br />
+                        RetroVision Studio (2022 - Present)
+                    </p>
+                    <p class="text-gray-300">
+                        <span class="font-semibold text-yellow-400">Intern Game Artist</span><br />
+                        PixelForge Lab (2021)
+                    </p>
+                </div>
+                <!-- Resume File Card -->
+                <div class="bg-gray-900 p-6 pixel-border flex flex-col justify-between text-center scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div>
+                        <h3 class="text-xl text-cyan-400 font-bold mb-4 scroll-fade">📄 Download Full Resume</h3>
+                        <p class="text-gray-300 mb-6">Want to see all my experience and projects?</p>
+                    </div>
+                    <a class="pixel-btn px-6 py-3 bg-purple-600 hover:bg-purple-500 text-sm inline-block transition-all duration-300"
+                        href="assets/resume.pdf" target="_blank">
+                        VIEW / DOWNLOAD RESUME
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PC Setup Section -->
+    <section class="py-16 bg-gray-900 px-4 scroll-fade" id="pc-setup">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 flex flex-col md:flex-row items-center justify-center gap-4">
+                <img alt="PC Pixel Icon" class="pixel-fire-gif"
+                    src="../personal gaming web/assets/img/Pixel Computer Sticker by db1group - Find &amp; Share on GIPHY.gif"
+                    style="width:60px; height:60px;" />
+                <h2 class="text-3xl md:text-5xl font-bold scroll-fade"
+                    style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                    MY GAMING SETUP
+                </h2>
+            </div>
+            <p class="max-w-2xl mx-auto text-gray-300 text-center">
+                HERE'S WHAT POWERS MY PIXEL WORLDS — FROM THE RIG TO THE PERIPHERALS!
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <!-- Section 1: PC Specs -->
+                <div class="bg-gray-900 p-4 pixel-border hover:animate-pixelate transition-all duration-300 scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div class="mb-4 text-center">
+                        <img alt="PC Tower" class="mx-auto w-20 h-20 pixel-art" src="https://i.imgur.com/BiF1D3Z.png" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400 text-center scroll-fade">GAMING PC</h3>
+                    <ul class="text-gray-300 text-sm leading-relaxed">
+                        <li>💻 <strong>CPU:</strong> Ryzen 7 5800X</li>
+                        <li>🎮 <strong>GPU:</strong> NVIDIA RTX 4070 Ti</li>
+                        <li>🧠 <strong>RAM:</strong> 32GB DDR4 3600MHz</li>
+                        <li>💾 <strong>Storage:</strong> 1TB NVMe + 2TB HDD</li>
+                        <li>❄️ <strong>Cooling:</strong> DeepCool 240mm AIO</li>
+                        <li>⚡ <strong>PSU:</strong> 750W 80+ Gold</li>
+                    </ul>
+                </div>
+                <!-- Section 2: Peripherals -->
+                <div class="bg-gray-900 p-4 pixel-border hover:animate-pixelate transition-all duration-300 scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div class="mb-4 text-center">
+                        <img alt="Keyboard and Mouse" class="mx-auto w-20 h-20 pixel-art"
+                            src="https://i.imgur.com/ZF3FZxv.png" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400 text-center scroll-fade">PERIPHERALS</h3>
+                    <ul class="text-gray-300 text-sm leading-relaxed">
+                        <li>⌨️ <strong>Keyboard:</strong> SteelSeries Apex Pro TKL</li>
+                        <li>🖱️ <strong>Mouse:</strong> Logitech G Pro X Superlight</li>
+                        <li>🎧 <strong>Headset:</strong> HyperX Cloud II</li>
+                        <li>🖥️ <strong>Monitor:</strong> LG 27" 240Hz IPS</li>
+                        <li>🎤 <strong>Mic:</strong> Elgato Wave 3</li>
+                        <li>🎛️ <strong>Audio:</strong> GoXLR Mini</li>
+                    </ul>
+                </div>
+                <!-- Section 3: Setup / Environment -->
+                <div class="bg-gray-900 p-4 pixel-border hover:animate-pixelate transition-all duration-300 scroll-fade"
+                    style="background-color: #1a1a2e;">
+                    <div class="mb-4 text-center">
+                        <img alt="Gaming Room" class="mx-auto w-20 h-20 pixel-art"
+                            src="https://i.imgur.com/7T3v7M3.png" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-cyan-400 text-center scroll-fade">SETUP &amp; ENVIRONMENT
+                    </h3>
+                    <ul class="text-gray-300 text-sm leading-relaxed">
+                        <li>🪑 <strong>Chair:</strong> Secretlab TITAN Evo</li>
+                        <li>🛋️ <strong>Desk:</strong> IKEA Bekant Sit/Stand</li>
+                        <li>🎨 <strong>Lighting:</strong> Nanoleaf Panels + RGB Strips</li>
+                        <li>📷 <strong>Camera:</strong> Logitech Brio 4K</li>
+                        <li>🌌 <strong>Vibe:</strong> Dark room, pixel neon lights, game posters</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section class="py-16 bg-gray-800 px-4 scroll-fade" id="skills">
+        <div class="container">
+            <div class="text-center mb-12 flex flex-col items-center">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4 text-center md:text-left">
+                    <!-- GIF پیکسلی آتیش بدون بک‌گراند کنار عنوان -->
+                    <img alt="Pixel diamond" class="pixel-fire-gif"
+                        src="../personal gaming web/assets/img/Video Games Animation Sticker by Reins - Find &amp; Share on GIPHY.gif"
+                        style="width:90px; height:60px;" />
+                    <h2 class="text-3xl md:text-5xl font-bold scroll-fade"
+                        style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                        MY SKILLS
+                    </h2>
+                </div>
+                <p class="max-w-2xl mx-auto text-gray-300">LEVEL UP YOUR SKILLS! 🔥</p>
+            </div>
+            <div class="row g-4">
+                <!-- Skill: Pixel Art -->
+                <div class="col-md-6">
+                    <div class="p-3 pixel-border bg-gray-800 scroll-fade">
+                        <h4 class="text-cyan-400 mb-2 d-flex align-items-center gap-2">
+                            <img alt="icon" class="pixel-art" src="https://i.imgur.com/wE9vMwL.png" width="20" />
+                            PIXEL ART
+                        </h4>
+                        <div class="progress pixel-progress">
+                            <div class="progress-bar pixel-fill purple" data-percent="90">90%</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill: Game Development -->
+                <div class="col-md-6">
+                    <div class="p-3 pixel-border bg-gray-800 scroll-fade">
+                        <h4 class="text-cyan-400 mb-2 d-flex align-items-center gap-2">
+                            <img alt="icon" class="pixel-art" src="https://i.imgur.com/VsM7MSr.png" width="20" />
+                            GAME DEV
+                        </h4>
+                        <div class="progress pixel-progress">
+                            <div class="progress-bar pixel-fill yellow" data-percent="90">90%</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill: HTML/CSS -->
+                <div class="col-md-6">
+                    <div class="p-3 pixel-border bg-gray-800 scroll-fade">
+                        <h4 class="text-cyan-400 mb-2 d-flex align-items-center gap-2">
+                            <img alt="icon" class="pixel-art" src="https://i.imgur.com/2FUV1c7.png" width="20" />
+                            HTML / CSS
+                        </h4>
+                        <div class="progress pixel-progress">
+                            <div class="progress-bar pixel-fill pink" data-percent="90">90%</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Skill: JavaScript -->
+                <div class="col-md-6">
+                    <div class="p-3 pixel-border bg-gray-800 scroll-fade">
+                        <h4 class="text-cyan-400 mb-2 d-flex align-items-center gap-2">
+                            <img alt="icon" class="pixel-art" src="https://i.imgur.com/2p58YKn.png" width="20" />
+                            JAVASCRIPT
+                        </h4>
+                        <div class="progress pixel-progress">
+                            <div class="progress-bar pixel-fill cyan" data-percent="90">90%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Stream Section -->
+    <section class="py-16 bg-gray-900 px-4 scroll-fade" id="stream">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 flex flex-col items-center">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4 text-center md:text-left">
+                    <img alt="Pixel Shadow" src="../personal gaming web/assets/img/Shadow the hedgehog run.gif"
+                        style="width: 100px; height: 100px;" />
+                    <h2 class="text-3xl md:text-5xl font-bold scroll-fade"
+                        style="color: #00ffff; text-shadow: 4px 4px 0px #ff00ff;">
+                        LIVE STREAM SCHEDULE
+                    </h2>
+                </div>
+                <p class="max-w-2xl mx-auto text-gray-300">
+                    TUNE IN FOR LIVE GAMEPLAY, SPEEDRUNS, AND DEVELOPMENT STREAMS.
+                </p>
+            </div>
+            <!-- تغییرات اصلی در این بخش اعمال شده -->
+            <div class="flex flex-col lg:flex-row gap-6 mb-10">
+                <!-- ویدئو -->
+                <div class="w-full lg:w-2/3 order-1">
+                    <div class="bg-black aspect-video relative border-4 border-black">
+                        <img alt="Stream Preview" class="w-full h-full object-cover opacity-70"
+                            src="https://i.imgur.com/nLsYOiP.png" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="p-4 bg-red-600 rounded-none border-4 border-black animate-pulse">
+                                <i class="fas fa-play text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-xl font-bold scroll-fade">LIVE: SPEEDRUNNING CYBER PIXEL ADVENTURE</h3>
+                            <p class="text-sm text-gray-300">140 VIEWERS WATCHING</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- اطلاعات استریم -->
+                <div class="w-full lg:w-1/3 order-2 lg:order-2 mt-6 lg:mt-0">
+                    <div class="bg-gray-900 p-6 h-full pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-4 scroll-fade">NEXT STREAM</h3>
+                        <div class="mb-6">
+                            <div class="flex items-center mb-2">
+                                <div
+                                    class="w-12 h-12 bg-purple-600 flex items-center justify-center mr-3 border-4 border-black">
+                                    <i class="fas fa-calendar-day"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold">TOMORROW</p>
+                                    <p class="text-sm text-gray-400">8:00 PM UTC</p>
+                                </div>
+                            </div>
+                            <h4 class="text-lg font-bold">PIXEL MONSTERS RPG DEV STREAM</h4>
+                            <p class="text-sm text-gray-300">ADDING NEW CREATURES AND BATTLE MECHANICS</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-400 mb-4 scroll-fade">STREAM INFO</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-cyan-400 mr-2 mt-1"></i>
+                                <span>STREAMS EVERY WED, FRI, SUN</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-gift text-purple-400 mr-2 mt-1"></i>
+                                <span>SUBSCRIBER GIVEAWAYS MONTHLY</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-users text-cyan-400 mr-2 mt-1"></i>
+                                <span>INTERACTIVE COMMUNITY EVENTS</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- کارت‌های پایینی -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-gray-900 p-4 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <div class="flex items-center mb-3">
+                        <div
+                            class="w-10 h-10 bg-purple-600 flex items-center justify-center mr-3 border-4 border-black">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="font-bold">SPEEDRUN FRIDAYS</h4>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        WATCH AS I ATTEMPT TO BEAT MY PERSONAL RECORDS IN CLASSIC AND INDIE GAMES.
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-4 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-cyan-500 flex items-center justify-center mr-3 border-4 border-black">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="font-bold">DEV SUNDAYS</h4>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        LIVE GAME DEVELOPMENT WITH Q&amp;A ABOUT PIXEL ART AND GAME DESIGN.
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-4 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <div class="flex items-center mb-3">
+                        <div
+                            class="w-10 h-10 bg-purple-600 flex items-center justify-center mr-3 border-4 border-black">
+                            <i class="fas fa-random"></i>
+                        </div>
+                        <h4 class="font-bold">RANDOM WEDNESDAYS</h4>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        COMMUNITY-VOTED GAMES WITH VIEWER CHALLENGES AND INTERACTIONS.
+                    </p>
+                </div>
+                <div class="bg-gray-900 p-4 pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-cyan-500 flex items-center justify-center mr-3 border-4 border-black">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="font-bold">SPECIAL EVENTS</h4>
+                    </div>
+                    <p class="text-sm text-gray-300">
+                        CHARITY STREAMS, GAME JAMS, AND COLLABORATIONS WITH OTHER DEVELOPERS.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 🏆 Achievements Section -->
+    <section class="py-16 bg-gray-800 px-4 scroll-fade" id="achievements">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 flex flex-col md:flex-row items-center justify-center gap-4">
+                <img alt="magic Pixel" class="pixel-art"
+                    src="../personal gaming web/assets/img/Like_ mommysboyfriendbeatsus.gif"
+                    style="width:60px; height:60px;" />
+                <h2 class="text-3xl md:text-5xl font-bold pixel-text scroll-fade" style="color: #00ffff;">ACHIEVEMENTS
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-900 p-6 pixel-border scroll-fade">
+                    <h3 class="text-xl text-cyan-400 font-bold mb-2 scroll-fade">🏆 PIXEL JAM 2024 WINNER</h3>
+                    <p class="text-gray-300">1st PLACE IN THE ANNUAL GAME JAM FOR BEST RETRO GAME DESIGN.</p>
+                </div>
+                <div class="bg-gray-900 p-6 pixel-border scroll-fade">
+                    <h3 class="text-xl text-cyan-400 font-bold mb-2 scroll-fade">👾 10+ GAMES RELEASED</h3>
+                    <p class="text-gray-300">BUILT AND SHARED OVER TEN INDIE GAMES LOVED BY RETRO FANS.</p>
+                </div>
+                <div class="bg-gray-900 p-6 pixel-border scroll-fade">
+                    <h3 class="text-xl text-cyan-400 font-bold mb-2 scroll-fade">🎥 1K TWITCH FOLLOWERS</h3>
+                    <p class="text-gray-300">REACHED A MAJOR MILESTONE ON STREAMING PLATFORM.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 🔢 Counter Section -->
+    <section class="py-16 bg-gray-900 px-4 scroll-fade" id="counters">
+        <div class="container mx-auto">
+            <!-- عنوان سکشن -->
+            <div class="text-center mb-12 flex flex-col md:flex-row items-center justify-center gap-4">
+                <img alt="ninja Pixel" class="pixel-art"
+                    src="../personal gaming web/assets/img/output-onlinegiftools2.gif"
+                    style="width:100px; height:100px;" />
+                <h2 class="text-3xl md:text-5xl font-bold pixel-text scroll-fade" style="color: #00ffff;">SOME NUMBERS
+                </h2>
+            </div>
+            <!-- کارت‌ها -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="pixel-border p-6 bg-gray-800 pixel-box scroll-fade">
+                    <h3 class="text-[1.5rem] md:text-4xl text-yellow-400 font-bold counter scroll-fade"
+                        data-target="12">0</h3>
+                    <p class="text-gray-300 mt-2">GAMES RELEASED</p>
+                </div>
+                <div class="pixel-border p-6 bg-gray-800 pixel-box scroll-fade">
+                    <h3 class="text-[1.5rem] md:text-4xl text-yellow-400 font-bold counter scroll-fade"
+                        data-target="50000">0</h3>
+                    <p class="text-gray-300 mt-2">TOTAL DOWNLOADS</p>
+                </div>
+                <div class="pixel-border p-6 bg-gray-800 pixel-box scroll-fade">
+                    <h3 class="text-[1.5rem] md:text-4xl text-yellow-400 font-bold counter scroll-fade"
+                        data-target="1200">0</h3>
+                    <p class="text-gray-300 mt-2">TWITCH FOLLOWERS</p>
+                </div>
+                <div class="pixel-border p-6 bg-gray-800 pixel-box scroll-fade">
+                    <h3 class="text-[1.5rem] md:text-4xl text-yellow-400 font-bold counter scroll-fade"
+                        data-target="99">0</h3>
+                    <p class="text-gray-300 mt-2">RETRO VIBES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="py-16 bg-gray-800 px-4 scroll-fade" id="contact">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4 text-center md:text-left">
+                    <img alt="phone pixel"
+                        src="../personal gaming web/assets/img/Happy Video Games Sticker - Find &amp; Share on GIPHY.gif"
+                        style="width: 50px; height: 50px;" />
+                    <h2 class="text-3xl md:text-5xl font-bold text-cyan-400 scroll-fade"
+                        style="text-shadow: 4px 4px 0px #ff00ff;">
+                        GET IN TOUCH
+                    </h2>
+                </div>
+                <p class="max-w-2xl mx-auto text-gray-300">
+                    HAVE QUESTIONS ABOUT MY GAMES? WANT TO COLLABORATE? SEND ME A MESSAGE!
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Contact Form -->
+                <div class="md:w-1/2">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1" for="name">YOUR NAME</label>
+                            <input
+                                class="w-full px-4 py-3 bg-gray-800 border-4 border-black focus:border-cyan-400 outline-none transition-all"
+                                id="name" placeholder="ENTER YOUR NAME" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1" for="email">EMAIL
+                                ADDRESS</label>
+                            <input
+                                class="w-full px-4 py-3 bg-gray-800 border-4 border-black focus:border-purple-400 outline-none transition-all"
+                                id="email" placeholder="ENTER YOUR EMAIL" type="email" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1" for="subject">SUBJECT</label>
+                            <select
+                                class="w-full px-4 py-3 bg-gray-800 border-4 border-black focus:border-cyan-400 outline-none transition-all"
+                                id="subject">
+                                <option value="">SELECT A TOPIC</option>
+                                <option value="collab">COLLABORATION INQUIRY</option>
+                                <option value="support">GAME SUPPORT</option>
+                                <option value="feedback">FEEDBACK</option>
+                                <option value="other">OTHER</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1" for="message">MESSAGE</label>
+                            <textarea
+                                class="w-full px-4 py-3 bg-gray-800 border-4 border-black focus:border-purple-400 outline-none transition-all"
+                                id="message" placeholder="TYPE YOUR MESSAGE HERE" rows="5"></textarea>
+                        </div>
+                        <button
+                            class="pixel-btn w-full py-3 bg-cyan-600 hover:bg-cyan-500 flex items-center justify-center"
+                            type="submit">
+                            <i class="fas fa-paper-plane mr-2"></i> SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+                <!-- Contact Info -->
+                <div class="md:w-1/2">
+                    <div class="bg-gray-800 p-6 h-full pixel-border scroll-fade" style="background-color: #1a1a2e;">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-6 scroll-fade">OTHER WAYS TO CONNECT</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-purple-600 flex items-center justify-center mr-4 flex-shrink-0 border-4 border-black">
+                                    <i class="fab fa-twitch"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">TWITCH</h4>
+                                    <p class="text-sm text-gray-300">WATCH LIVE STREAMS AND INTERACT WITH THE COMMUNITY.
+                                    </p>
+                                    <a class="text-cyan-400 text-sm hover:underline" href="#">TWITCH.TV/PIXELGAMER</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-cyan-500 flex items-center justify-center mr-4 flex-shrink-0 border-4 border-black">
+                                    <i class="fab fa-discord"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">DISCORD</h4>
+                                    <p class="text-sm text-gray-300">JOIN THE PIXELGAMER COMMUNITY ON DISCORD.</p>
+                                    <a class="text-purple-400 text-sm hover:underline"
+                                        href="#">DISCORD.GG/PIXELGAMER</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-purple-600 flex items-center justify-center mr-4 flex-shrink-0 border-4 border-black">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">TWITTER</h4>
+                                    <p class="text-sm text-gray-300">FOLLOW FOR GAME UPDATES AND RETWEETS OF GREAT PIXEL
+                                        ART.</p>
+                                    <a class="text-cyan-400 text-sm hover:underline" href="#">TWITTER.COM/PIXELGAMER</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-cyan-500 flex items-center justify-center mr-4 flex-shrink-0 border-4 border-black">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">EMAIL</h4>
+                                    <p class="text-sm text-gray-300">FOR BUSINESS INQUIRIES AND PRESS.</p>
+                                    <a class="text-purple-400 text-sm hover:underline"
+                                        href="mailto:contact@pixelgamer.com">CONTACT@PIXELGAMER.COM</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t-4 border-black py-10 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a class="text-2xl font-bold text-cyan-400 flex items-center gap-3" href="#"
+                        style="text-shadow: 2px 2px 0px #ff00ff;">
+                        <!-- گیف پیکسلی بزرگ‌تر -->
+                        <img alt="logo" class="w-10 h-10 pixel-fire-gif"
+                            src="../personal gaming web/assets/img/pine-removebg-preview.png" />
+                        <span class="flex items-center">
+                            <!-- <span class="inline-block w-6 h-6 bg-purple-500 mr-2 border-2 border-black"></span> -->
+                            PIXELGAMER
+                        </span>
+                    </a>
+                    <p class="text-gray-400 mt-2">BRINGING RETRO GAMING INTO THE MODERN AGE.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-none border-4 border-black flex items-center justify-center transition-all"
+                        href="#">
+                        <i class="fab fa-twitch"></i>
+                    </a>
+                    <a class="w-10 h-10 bg-gray-800 hover:bg-blue-400 rounded-none border-4 border-black flex items-center justify-center transition-all"
+                        href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="w-10 h-10 bg-gray-800 hover:bg-cyan-500 rounded-none border-4 border-black flex items-center justify-center transition-all"
+                        href="#">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a class="w-10 h-10 bg-gray-800 hover:bg-red-500 rounded-none border-4 border-black flex items-center justify-center transition-all"
+                        href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t-4 border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2023 PIXELGAMER. ALL RIGHTS RESERVED.</p>
+                <div class="flex space-x-4">
+                    <a class="text-gray-400 hover:text-cyan-400 text-sm transition-colors" href="#">PRIVACY POLICY</a>
+                    <a class="text-gray-400 hover:text-purple-400 text-sm transition-colors" href="#">TERMS OF
+                        SERVICE</a>
+                    <a class="text-gray-400 hover:text-cyan-400 text-sm transition-colors" href="#">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        // Simulate loading progress
+        document.addEventListener('DOMContentLoaded', function () {
+            let progress = 0;
+            const progressBar = document.getElementById('progress-bar');
+            const loadingScreen = document.getElementById('loading');
+
+            const interval = setInterval(function () {
+                progress += Math.random() * 10;
+                if (progress > 100) progress = 100;
+                progressBar.style.width = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(function () {
+                        loadingScreen.style.opacity = '0';
+                        setTimeout(function () {
+                            loadingScreen.style.display = 'none';
+                        }, 1000);
+                    }, 300);
+                }
+            }, 100);
+
+            // مدیریت منوی موبایل
+            document.getElementById('menu-toggle').addEventListener('click', function () {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // اسکرول نرم
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // لودینگ صفحه
+            window.addEventListener('load', function () {
+                document.getElementById('loading').style.display = 'none';
+            });
+
+
+            // Add scroll detection for active nav links
+            window.addEventListener('scroll', function () {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('nav a');
+
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-purple-600', 'text-white');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('bg-purple-600', 'text-white');
+                    }
+                });
+            });
+
+            // Trigger scroll event on load to set initial active link
+            window.dispatchEvent(new Event('scroll'));
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".pixel-fill").forEach(bar => {
+                const percent = bar.getAttribute("data-percent");
+                bar.style.transition = "width 1.8s cubic-bezier(0.25, 1, 0.5, 1)";
+                setTimeout(() => {
+                    bar.style.width = percent + "%";
+                }, 100);
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".counter");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = +el.getAttribute("data-target");
+                        const duration = 2000;
+                        const startTime = performance.now();
+
+                        const update = (now) => {
+                            const progress = Math.min((now - startTime) / duration, 1);
+                            const value = Math.floor(progress * target);
+                            el.innerText = target >= 1000 ? value.toLocaleString() : value;
+                            if (progress < 1) requestAnimationFrame(update);
+                        };
+
+                        requestAnimationFrame(update);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            counters.forEach(counter => observer.observe(counter));
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const music = document.getElementById('bg-music');
+            const toggleBtn = document.getElementById('music-toggle');
+            const toggleText = toggleBtn.querySelector('span');
+
+            let isPlaying = false;
+
+            // Play after user interaction (محدودیت مرورگرها)
+            toggleBtn.addEventListener('click', () => {
+                if (!isPlaying) {
+                    music.play();
+                    isPlaying = true;
+                    toggleText.textContent = 'Music: ON';
+                } else {
+                    music.pause();
+                    isPlaying = false;
+                    toggleText.textContent = 'Music: OFF';
+                }
+            });
+        });
+
+
+        const shooterToggle = document.getElementById('shooter-toggle');
+        const shooterFrame = document.getElementById('shooter-frame');
+        let shooterActive = false;
+
+        shooterToggle.addEventListener('click', () => {
+            shooterActive = !shooterActive;
+
+            shooterFrame.style.display = shooterActive ? 'block' : 'none';
+            shooterFrame.style.pointerEvents = shooterActive ? 'auto' : 'none';
+            shooterToggle.querySelector('span').textContent = shooterActive ? 'Shooter: ON' : 'Shooter: OFF';
+
+            // ✉️ بعد از نمایش iframe، بهش پیام بده که خودش رو وسط تنظیم کنه
+            if (shooterActive) {
+                shooterFrame.style.display = 'block';
+                shooterFrame.style.pointerEvents = 'auto';
+                shooterToggle.querySelector('span').textContent = 'Shooter: ON';
+
+                // ⬇️ ارسال ابعاد دقیق به iframe
+                const iframeBounds = shooterFrame.getBoundingClientRect();
+                shooterFrame.contentWindow.postMessage({
+                    action: 'centerPlayer',
+                    width: iframeBounds.width,
+                    height: iframeBounds.height
+                }, '*');
+            } else {
+                shooterFrame.style.display = 'none';
+                shooterFrame.style.pointerEvents = 'none';
+                shooterToggle.querySelector('span').textContent = 'Shooter: OFF';
+            }
+        });
+
+    </script>
+    <script>
+        // 🔍 انیمیشن ظاهر شدن موقع اسکرول
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.scroll-fade').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
