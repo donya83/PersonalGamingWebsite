@@ -33,28 +33,28 @@
             font-size: 14px;
             line-height: 1.5;
             image-rendering: pixelated;
-            cursor: url('personal gaming web/assets/cursor/Normal Select 2.cur'), auto;
+            cursor: url('../personal gaming web/assets/cursor/Normal Select 2.cur'), auto;
 
         }
 
         .selectable-text {
-            cursor: url('personal gaming web/assets/cursor/Text select 54jh.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Text select 54jh.cur'), text;
         }
 
         input,
         textarea {
-            cursor: url('personal gaming web/assets/cursor/Text select 54jh.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Text select 54jh.cur'), text;
         }
 
         a,
         button,
         .link-area {
-            cursor: url('personal gaming web/assets/cursor/Link mano.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
         }
 
         .resize-vertical {
             resize: vertical;
-            cursor: url('personal gaming web/assets/cursor/Vertical Resize.cur'), ns-resize;
+            cursor: url('../personal gaming web/assets/cursor/Vertical Resize.cur'), ns-resize;
         }
 
         a,
@@ -62,11 +62,11 @@
         .clickable,
         [role="button"],
         [onclick] {
-            cursor: url('personal gaming web/assets/cursor/Link mano.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
         }
 
         a:hover {
-            cursor: url('personal gaming web/assets/cursor/Link mano.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
         }
 
         a:hover,
@@ -74,18 +74,18 @@
         .clickable:hover,
         [role="button"]:hover,
         [onclick]:hover {
-            cursor: url('personal gaming web/assets/cursor/Link mano.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
         }
 
         *::before,
         *::after {
-            cursor: url('personal gaming web/assets/cursor/Link mano.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
         }
 
         a:disabled,
         button:disabled,
         .disabled-area {
-            cursor: url('personal gaming web/assets/cursor/Link mano.cur'), text;
+            cursor: url('../personal gaming web/assets/cursor/Link mano.cur'), text;
             /* دکمه یا لینک غیرفعال */
         }
 
@@ -369,7 +369,7 @@
             <a href="#" class="text-2xl font-bold text-cyan-400 flex items-center gap-2"
                 style="text-shadow: 2px 2px 0px #ff00ff;">
                 <!-- 🔥 گیف پیکسلی کنار لوگو -->
-                <img src="personal gaming web/assets/img/pine-removebg-preview.png" alt="Logo"
+                <img src="../personal gaming web/assets/img/pine-removebg-preview.png" alt="Logo"
                     class="w-6 h-6 pixel-fire-gif" style="width: 50px; height: 50px;" />
                 <span class="flex items-center">
                     <!-- <span class="inline-block w-6 h-6 bg-purple-500 mr-2 border-2 border-black"></span> -->
@@ -383,7 +383,7 @@
 
             <div id="menu" class="hidden md:flex space-x-4">
                 <a href="#home" class="pixel-btn px-4 py-2 bg-gray-800 hover:bg-gray-700 flex items-center space-x-2">
-                    <img src="personal gaming web/assets/img/output-onlinegiftools.gif" alt="Home"
+                    <img src="../personal gaming web/assets/img/output-onlinegiftools.gif" alt="Home"
                         class="w-6 h-6">
                     <span>Home</span>
                 </a>
@@ -394,7 +394,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-4 py-2 border-t-4 border-black">
             <div class="flex flex-col space-y-2">
                 <a href="#home" class="pixel-btn px-4 py-2 bg-gray-700 hover:bg-gray-600 flex items-center space-x-2">
-                    <img src="personal gaming web/assets/img/output-onlinegiftools.gif" alt="Home"
+                    <img src="../personal gaming web/assets/img/output-onlinegiftools.gif" alt="Home"
                         class="w-6 h-6">
                     <span>Home</span>
                 </a>
@@ -406,7 +406,9 @@
     <!-- 🎧 Background Music Audio Tag (Hidden) -->
     <audio id="bg-music" loop>
         <source src="../personal gaming web/assets/audio/pixel-245147.mp3" type="audio/mpeg">
-        Your browser does not support the audio element    </audio>
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- 🎛️ Toggle Button -->
     <button id="music-toggle"
         class="fixed bottom-4 right-4 pixel-btn bg-purple-600 hover:bg-purple-500 px-4 py-2 z-50 flex items-center space-x-2 text-sm">
@@ -422,7 +424,7 @@
     </button>
 
     <!-- Shooter iframe -->
-    <iframe id="shooter-frame" src="personal gaming web/assets/shooter/gun-shooting.html"
+    <iframe id="shooter-frame" src="../personal gaming web/assets/shooter/gun-shooting.html"
         style="position: fixed; bottom: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: 40; display: none; pointer-events: none;">
     </iframe>
 
@@ -475,7 +477,9 @@
                         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-60 md:h-60 pixel-art border-4 border-black">
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- Games Section -->
     <section id="games" class="py-16 bg-gray-800 px-4">
         <div class="container mx-auto">
@@ -579,7 +583,9 @@
                     </div>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="py-16 bg-gray-900 px-4">
         <div class="container mx-auto flex flex-col md:flex-row items-center">
@@ -633,7 +639,9 @@
                     </div>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- 📄 Resume Section -->
     <section id="resume" class="py-16 bg-gray-800 px-4">
         <div class="container mx-auto">
@@ -694,7 +702,9 @@
                     </a>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- PC Setup Section -->
     <section id="pc-setup" class="py-16 bg-gray-900 px-4">
         <div class="container mx-auto">
@@ -762,7 +772,9 @@
                     </ul>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="py-16 bg-gray-800 px-4">
         <div class="container">
@@ -832,7 +844,9 @@
                     </div>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- Stream Section -->
     <section id="stream" class="py-16 bg-gray-900 px-4">
         <div class="container mx-auto">
@@ -959,7 +973,9 @@
                     </p>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- 🏆 Achievements Section -->
     <section id="achievements" class="py-16 bg-gray-800 px-4">
         <div class="container mx-auto">
@@ -983,7 +999,9 @@
                     <p class="text-gray-300">REACHED A MAJOR MILESTONE ON STREAMING PLATFORM.</p>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- 🔢 Counter Section -->
     <section id="counters" class="py-16 bg-gray-900 px-4">
         <div class="container mx-auto">
@@ -1013,7 +1031,9 @@
                     <p class="text-gray-300 mt-2">RETRO VIBES</p>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-800 px-4">
         <div class="container mx-auto">
@@ -1136,7 +1156,9 @@
                     </div>
                 </div>
             </div>
-        </div    </section>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-gray-900 border-t-4 border-black py-10 px-4">
         <div class="container mx-auto">
@@ -1184,7 +1206,9 @@
                     <a href="#" class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">FAQ</a>
                 </div>
             </div>
-        </div    </footer>
+        </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
